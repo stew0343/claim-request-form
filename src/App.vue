@@ -1,25 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <form msg="Welcome to Your Vue.js App"/>
+    <claimForm></claimForm>
   </div>
 </template>
 
 <script>
-import form from './components/form/form.vue'
+import claimForm from './components/form/form.vue'
 
 export default {
   name: 'app',
   components: {
-    form
+    claimForm
   }
 }
 </script>
