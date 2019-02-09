@@ -27,13 +27,13 @@
       </el-form-item>
 
       <el-form-item label="Receipt" prop="receipt">
-        <el-checkbox v-model="form.receipt">I'd like an e-mail receipt</el-checkbox>
+        <el-checkbox v-model="form.receipt" checked>I'd like an e-mail receipt</el-checkbox>
       </el-form-item>
 
       <el-form-item>
       <el-row>
         <el-button type="success" @click="submitForm('form')">Submit</el-button>
-        <el-button type="danger" @click="resetForm('form')">Cancel</el-button>
+        <el-button type="danger" @click="resetForm('form')">Reset</el-button>
       </el-row>
       </el-form-item>
 
@@ -41,9 +41,14 @@
         <el-dialog
           title="Confirm"
           :visible.sync="form.dialogVisible"
-          width="30%"
+          width="50%"
           :before-close="handleClose">
-          <span>Are you sure???</span>
+          <strong>Name:</strong> {{form.firstName}} {{form.lastName}}<br>
+          <strong>Email:</strong> {{form.email}}<br>
+          <strong>Type of Claim:</strong> {{form.type}}<br>
+          <strong>Claim Details:</strong> {{form.details}}<br>
+          <span>You have <span v-if="form.receipt == false"><strong>not</strong></span> requested a receipt.</span><br>
+          <span>Are you sure you want to submit?</span>
           <span slot="footer" class="dialog-footer">
             <el-button @click="form.dialogVisible = false">Cancel</el-button>
             <el-button type="primary" @click="form.dialogVisible = false">Confirm</el-button>
